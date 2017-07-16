@@ -10,4 +10,11 @@ public interface BloggerDao {
 	 * @return
 	 */
 	public Blogger getByUserName(String userName);
+	
+	/**
+	 * 查找博主信息
+	 * @param userName
+	 * @return
+	 */
+	public Blogger find();
 }

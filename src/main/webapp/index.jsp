@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -147,8 +149,8 @@
 				<div class="user_image">
 					<img src="${pageContext.request.contextPath}/static/userImages/20160202095456.jpg"/>
 				</div>
-				<div class="nickName">Java1234_小锋</div>
-				<div class="userSign">(知识改变命运，技术改变世界)</div>
+				<div class="nickName">${blogger.userName }</div>
+				<div class="userSign">${blogger.sign }</div>
 			</div>
 	  	
 	  		<div class="data_list">
@@ -204,17 +206,12 @@
 				</div>
 				<div class="datas">
 					<ul>
-						
-							<li><span><a href="http://www.java1234.com/" target="_blank">Java知识分享网</a></span></li>
-						
-							<li><span><a href="http://pan.java1234.com/" target="_blank">百度云搜索引擎</a></span></li>
-						
-							<li><span><a href="http://www.easyicon.net/" target="_blank">小图标下载</a></span></li>
-						
-							<li><span><a href="http://tieba.baidu.com/f?kw=java" target="_blank">Java贴吧</a></span></li>
-						
-							<li><span><a href="http://www.uugai.com/" target="_blank">免费logo在线制作</a></span></li>
-						
+						<c:forEach var="link" items="${linkList }">
+							<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span></li>
+						</c:forEach>
+						<%-- <c:forEach var="link" items="${linkList}">
+							<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span><li>
+						</c:forEach> --%>
 					</ul>
 				</div>
 			</div>

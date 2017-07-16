@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import win.bigdream.dao.BloggerDao;
 import win.bigdream.entity.Blogger;
 import win.bigdream.service.BloggerService;
-@Service
+@Service("bloggerService")
 public class BloggerServiceImpl implements BloggerService {
 	
 	@Resource
@@ -16,6 +16,17 @@ public class BloggerServiceImpl implements BloggerService {
 	@Override
 	public Blogger getByUserName(String userName) {
 		return bloggerDao.getByUserName(userName);
+	}
+	
+	/**
+	 * 查找博主信息
+	 * @param userName
+	 * @return
+	 */
+	@Override
+	public Blogger find() {
+		// TODO Auto-generated method stub
+		return bloggerDao.find();
 	}
 
 }
