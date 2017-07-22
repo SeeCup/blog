@@ -14,8 +14,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import win.bigdream.entity.Blog;
+import win.bigdream.entity.BlogType;
 import win.bigdream.entity.Blogger;
 import win.bigdream.entity.Link;
+import win.bigdream.service.BlogService;
+import win.bigdream.service.BlogTypeService;
 import win.bigdream.service.BloggerService;
 import win.bigdream.service.LinkService;
 
@@ -39,6 +43,14 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
 		LinkService linkService = (LinkService) applicationContext.getBean("linkService");
 		List<Link> linkList =linkService.list(null);
 		application.setAttribute("linkList", linkList);
+		
+		BlogTypeService blogTypeService = (BlogTypeService) applicationContext.getBean("blogTypeService");
+		List<BlogType> blogTypeCountList =blogTypeService.countList();//查询博客类型，博客类型总数
+		application.setAttribute("blogTypeCountList", blogTypeCountList);
+		
+		BlogService blogService = (BlogService) applicationContext.getBean("blogService");
+		List<Blog> blogCountList =blogService.countList();//按日期查询博客，博客总数
+		application.setAttribute("blogCountList", blogCountList);
 	}
 
 	@Override
