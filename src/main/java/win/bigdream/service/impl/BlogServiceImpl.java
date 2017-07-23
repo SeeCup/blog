@@ -4,6 +4,7 @@
 package win.bigdream.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -31,5 +32,21 @@ public class BlogServiceImpl implements BlogService {
 	public List<Blog> countList() {
 		return blogDao.countList();
 	}
-
+	
+	/**
+	 * 分页查出博客数量
+	 * @param
+	 * @return
+	 */
+	public List<Blog> list(Map<String,Object> map){
+		return blogDao.list(map);
+	};
+	
+	/**
+	 * 获得博客总记录数
+	 * @return
+	 */
+	public Long getTotal(){
+		return blogDao.getTotal();
+	};
 }

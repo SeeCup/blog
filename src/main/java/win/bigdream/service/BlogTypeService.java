@@ -18,5 +18,10 @@ public interface BlogTypeService {
 	 */
 	public List<BlogType> countList();
 	
-
+	/**
+	 * 通过id查找博客类型
+	 * @param id
+	 * @return
+	 */
+	public BlogType findById(Integer id);
 }

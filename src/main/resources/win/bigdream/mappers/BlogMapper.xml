@@ -8,16 +8,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="id" column="id"/>
 		<result property="title" column="title"/>
 		<result property="summary" column="summary"/>
+		<result property="releaseDate" column="releaseDate"/>
 		<result property="releaseDateStr" column="releaseDateStr"/>
 		<result property="clickHit" column="clickHit"/>
 		<result property="replyHit" column="replyHit"/>
 		<result property="content" column="content"/>
 		<result property="keyWord" column="keyWord"/>
-		<association property="blogType" column="typeId" select="win.bigdream.dao.BlogDao"></association>
+		<association property="blogType" column="typeId" select="win.bigdream.dao.BlogTypeDao.findById"></association>
 	</resultMap>
 	
 	<select id="countList"  resultMap="BlogResult">
 		select DATE_FORMAT(releaseDate,'%Y年%m月') as releaseDateStr,COUNT(*) AS blogCount from t_blog group by DATE_FORMAT(releaseDate,'%Y年%m月') order by DATE_FORMAT(releaseDate,'%Y年%m月')
 	</select>
 	
+	<select id="list" parameterType="Map" resultMap="BlogResult">
+		select * from t_blog
+		 order by releaseDate 
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" resultType="Long">
+		select count(*) from t_blog
+	</select>
 </mapper> 

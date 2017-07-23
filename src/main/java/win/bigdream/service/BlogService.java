@@ -1,6 +1,7 @@
 package win.bigdream.service;
 
 import java.util.List;
+import java.util.Map;
 
 import win.bigdream.entity.Blog;
 import win.bigdream.entity.BlogType;
@@ -19,5 +20,16 @@ public interface BlogService {
 	 */
 	public List<Blog> countList();
 	
-
+	/**
+	 * 分页查出博客数量
+	 * @param
+	 * @return
+	 */
+	public List<Blog> list(Map<String,Object> map);
+	
+	/**
+	 * 获得博客总记录数
+	 * @return
+	 */
+	public Long getTotal();
 }

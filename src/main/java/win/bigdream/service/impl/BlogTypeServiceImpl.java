@@ -30,5 +30,13 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 	public List<BlogType> countList() {
 		return blogTypeDao.countList();
 	}
-
+	
+	/**
+	 * 通过id查找博客类型
+	 * @param id
+	 * @return
+	 */
+	public BlogType findById(Integer id){
+		return blogTypeDao.findById(id);
+	};
 }
