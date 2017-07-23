@@ -29,5 +29,5 @@ public interface BlogDao {
 	 * 获得博客总记录数
 	 * @return
 	 */
-	public Long getTotal();
+	public Long getTotal(Map<String,Object> map);
 }

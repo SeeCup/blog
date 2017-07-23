@@ -46,7 +46,7 @@ public class BlogServiceImpl implements BlogService {
 	 * 获得博客总记录数
 	 * @return
 	 */
-	public Long getTotal(){
-		return blogDao.getTotal();
+	public Long getTotal(Map<String,Object> map){
+		return blogDao.getTotal(map);
 	};
 }

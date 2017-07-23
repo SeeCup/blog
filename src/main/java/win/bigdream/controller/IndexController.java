@@ -36,7 +36,7 @@ public class IndexController {
 	private BlogService blogService;
 	
 	@RequestMapping("/index")
-	public ModelAndView index(@RequestParam(value="page",required=false)String page,HttpServletRequest request){
+	public ModelAndView index(@RequestParam(value="page",required=false)String page,@RequestParam(value="typeId",required=false)String typeId,@RequestParam(value="releaseDateStr",required=false)String releaseDateStr,HttpServletRequest request){
 		ModelAndView model = new ModelAndView();
 		if(StringUtil.isEmpty(page)){
 			page="1";
@@ -45,6 +45,8 @@ public class IndexController {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
+		map.put("typeId", typeId);
+		map.put("releaseDateStr", releaseDateStr);
 		List<Blog> blogList = blogService.list(map);
 		//博客图片从数据库content的html解析出来
 		for(Blog blog:blogList){
@@ -62,11 +64,24 @@ public class IndexController {
 		}
 		model.addObject("blogList", blogList);
 		StringBuffer param = new StringBuffer();
-		model.addObject("pageCode",PageUtil.genPagination(request.getContextPath()+"/index.html", blogService.getTotal(), Integer.parseInt(page), 10, param.toString()));
+		model.addObject("pageCode",PageUtil.genPagination(request.getContextPath()+"/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
 		model.addObject("pageTitle","java开源博客系统");
 		model.addObject("mainPage","/foreground/blog/list.jsp");
 		model.setViewName("mainTemp");
 		return model;
 	}
-
+	
+	
+	/**
+	 * 源码下载页面
+	 * @return
+	 */
+	@RequestMapping("/download")
+	public ModelAndView download(){
+		ModelAndView model = new ModelAndView();
+		model.addObject("pageTitle","本站源码下载页面_java开源博客系统");
+		model.addObject("mainPage","/foreground/system/download.jsp");
+		model.setViewName("mainTemp");
+		return model;
+	}
 }

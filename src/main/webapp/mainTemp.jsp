@@ -26,7 +26,9 @@
 	<jsp:include page="./foreground/common/menu.jsp"></jsp:include>
 	
 	<div class="row">
+	  <div class="col-md-9">
 	  <jsp:include page="${mainPage }"></jsp:include>
+	  </div>
 	  <div class="col-md-3">
 	  		<div class="data_list">
 				<div class="data_list_title">
@@ -48,7 +50,7 @@
 				<div class="datas">
 					<ul>
 						<c:forEach var="blogTypeCount" items="${blogTypeCountList}">
-							<li><span><a href="javascript:void(0)">${blogTypeCount.typeName}(${blogTypeCount.blogCount })</a></span></li>
+							<li><span><a href="/index.html?typeId=${blogTypeCount.id }">${blogTypeCount.typeName}(${blogTypeCount.blogCount })</a></span></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -64,7 +66,7 @@
 				<div class="datas">
 					<ul>
 						<c:forEach var="blogCount" items="${blogCountList }">
-							<li><span><a href="javascript:void(0)">${blogCount.releaseDateStr}(${blogCount.blogCount })</a></span></li>
+							<li><span><a href="/index.html?releaseDateStr=${blogCount.releaseDateStr }">${blogCount.releaseDateStr}(${blogCount.blogCount })</a></span></li>
 						</c:forEach>
 							<!-- <li><span><a href="/index.html?releaseDateStr=2016年02月">2016年02月(11)</a></span></li> -->
 						

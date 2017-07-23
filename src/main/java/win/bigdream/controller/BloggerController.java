@@ -10,6 +10,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import win.bigdream.entity.Blogger;
 import win.bigdream.service.BloggerService;
@@ -41,5 +42,17 @@ public class BloggerController {
 			return "login";
 		}	
 	}
-
+	
+	/**
+	 * 源码下载页面
+	 * @return
+	 */
+	@RequestMapping("/aboutMe")
+	public ModelAndView download(){
+		ModelAndView model = new ModelAndView();
+		model.addObject("pageTitle","关于博主_java开源博客系统");
+		model.addObject("mainPage","/foreground/blogger/info.jsp");
+		model.setViewName("mainTemp");
+		return model;
+	}
 }
