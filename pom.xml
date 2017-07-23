@@ -223,6 +223,13 @@
 		<artifactId>druid</artifactId>
 		<version>1.0.16</version>
 	</dependency>
+	
+	<!-- 添加Jsoup解析图片 -->
+	<dependency>
+		<groupId>org.jsoup</groupId>
+		<artifactId>jsoup</artifactId>
+		<version>1.8.3</version>
+	</dependency>
   </dependencies>
   <!-- -工程强制使用1.7jdk -->
   <build>

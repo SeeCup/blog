@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/blog.css">
 <script src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
-<title>博主主页</title>
+<title>${pageTitle }-- Powered by bigdream</title>
 <style type="text/css">
 	body{
 		padding-top: 10px;

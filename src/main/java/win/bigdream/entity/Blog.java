@@ -4,6 +4,8 @@
 package win.bigdream.entity;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author hh
@@ -24,6 +26,8 @@ public class Blog {
 	private String keyWord;//关键字 空格隔开 200
 	private Integer blogCount;//博客数量 用于发布日期归档查询数量用到
 	private String releaseDateStr;//发布日期的字符串 只取年和月
+	
+	private List<String> imageList = new LinkedList<String>();//博客首页图片，主要用于在列表中显示，只有两张
 	public Integer getId() {
 		return id;
 	}
@@ -89,6 +93,12 @@ public class Blog {
 	}
 	public void setReleaseDateStr(String releaseDateStr) {
 		this.releaseDateStr = releaseDateStr;
+	}
+	public List<String> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
 	
 	
