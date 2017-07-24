@@ -32,4 +32,17 @@ public interface BlogService {
 	 * @return
 	 */
 	public Long getTotal(Map<String,Object> map);
+	
+	/**
+	 * 根据id查出博客文章
+	 * @param id
+	 * @return
+	 */
+	public Blog findById(Integer id);
+	
+	/**
+	 * 根据id更新博客内容
+	 * @param blog
+	 */
+	public void update(Blog blog);
 }

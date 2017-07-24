@@ -49,4 +49,21 @@ public class BlogServiceImpl implements BlogService {
 	public Long getTotal(Map<String,Object> map){
 		return blogDao.getTotal(map);
 	};
+	
+	/**
+	 * 根据id查出博客文章
+	 * @param id
+	 * @return
+	 */
+	public Blog findById(Integer id){
+		return blogDao.findById(id);
+	};
+	
+	/**
+	 * 根据id更新博客内容
+	 * @param blog
+	 */
+	public void update(Blog blog){
+		blogDao.update(blog);
+	};
 }
