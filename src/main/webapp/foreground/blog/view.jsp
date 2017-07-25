@@ -14,11 +14,30 @@
 		博客信息
 	</div>
 	<div class="blog_title"><h3><strong>${blog.title }</strong></h3></div>
+	<div class="blog_share">
+		<div class="bshare-custom">
+			<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
+				class="bshare-sinaminiblog"></a><a title="分享到人人网"
+				class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a
+				title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台"
+				class="bshare-more bshare-more-icon more-style-addthis"></a><span
+				class="BSHARE_COUNT bshare-share-count">0</span>
+		</div>
+		<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+		<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+	</div>
 	<div class="blog_info">
 		发布时间：『<fmt:formatDate value="${blog.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;
 		博客类型：${blog.blogType.typeName }
 	</div>
 	<div class="blog_content">
 		${blog.content }
+	</div>
+	<div class="blog_keyWord">
+		<font><strong>关键字：</strong></font>
+		<a href="#" target="_blank">你好啊</a>
+	</div>
+	<div class="blog_lastAndNextPage">
+		${pageCode }
 	</div>
 </div>

@@ -44,4 +44,18 @@ public interface BlogDao {
 	 */
 	public void update(Blog blog);
 	
+	/**
+	 * 根据id查出上一页
+	 * @param id
+	 * @return
+	 */
+	public Blog getLastBlog(Integer id);
+	
+	/**
+	 * 根据id查出下一页
+	 * @param id
+	 * @return
+	 */
+	public Blog getNextBlog(Integer id);
+	
 }

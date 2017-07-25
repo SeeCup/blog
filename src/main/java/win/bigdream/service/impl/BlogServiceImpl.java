@@ -66,4 +66,22 @@ public class BlogServiceImpl implements BlogService {
 	public void update(Blog blog){
 		blogDao.update(blog);
 	};
+	
+	/**
+	 * 根据id查出上一页
+	 * @param id
+	 * @return
+	 */
+	public Blog getLastBlog(Integer id){
+		return blogDao.getLastBlog(id);
+	};
+	
+	/**
+	 * 根据id查出下一页
+	 * @param id
+	 * @return
+	 */
+	public Blog getNextBlog(Integer id){
+		return blogDao.getNextBlog(id);
+	};
 }
