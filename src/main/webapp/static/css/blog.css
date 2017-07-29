@@ -131,3 +131,23 @@
 	padding: 10px;
 }
 
+.data_list .commentDatas{
+	padding: 10px;
+}
+
+
+.data_list .commentDatas .comment{
+	margin-top:10px;
+	margin-bottom: 5px;
+	padding-bottom:15px;
+	border-bottom: 1px dotted gray;
+}
+
+.data_list .commentDatas .comment font ,.data_list .commentDatas .otherComment font{
+	font-weight: bold;
+}
+
+
+.data_list .commentDatas .otherComment{
+	display: none;
+}

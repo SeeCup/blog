@@ -4,6 +4,8 @@
 package win.bigdream.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import win.bigdream.entity.Blog;
 import win.bigdream.service.BlogService;
+import win.bigdream.service.CommentService;
 import win.bigdream.util.StringUtil;
 
 /**
@@ -28,6 +31,9 @@ public class BlogController {
 	
 	@Resource
 	private BlogService blogService;
+	
+	@Resource
+	private CommentService commentService;
 	
 	@RequestMapping("/articles/{id}")
 	public ModelAndView details(@PathVariable("id")Integer id,HttpServletRequest request)throws Exception{
@@ -44,6 +50,10 @@ public class BlogController {
 		model.addObject("blog",blog);
 		blog.setReplyHit(blog.getClickHit()+1);
 		blogService.update(blog);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("blogId", blog.getId());
+		map.put("state", "1");
+		model.addObject("commentList",commentService.list(map));
 		model.addObject("pageCode", this.getUpAndDownPageCode(blogService.getLastBlog(id), blogService.getNextBlog(id), request.getServletContext().getContextPath()));
 		model.addObject("pageTitle",blog.getTitle()+"java开源博客系统");
 		model.addObject("mainPage","/foreground/blog/view.jsp");
