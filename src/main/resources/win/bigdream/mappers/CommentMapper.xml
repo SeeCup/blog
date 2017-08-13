@@ -26,4 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 		order by commentDate desc
 	</select>
+	
+	<insert id="add" parameterType="Comment">
+		insert into t_comment 
+		(id,userIp,blogId,content,commentDate,state)values
+		(null,#{userIp},#{blog.id},#{content},now(),0)
+	</insert>
 </mapper> 

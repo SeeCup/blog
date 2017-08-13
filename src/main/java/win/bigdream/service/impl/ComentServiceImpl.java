@@ -34,5 +34,13 @@ public class ComentServiceImpl implements CommentService {
 	public List<Comment> list(Map<String, Object> map) {
 		return commentDao.list(map);
 	}
-
+	
+	/**
+	 * 添加评论
+	 * @param comment
+	 * @return
+	 */
+	public int add(Comment comment){
+		return commentDao.add(comment);
+	};
 }

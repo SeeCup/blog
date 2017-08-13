@@ -48,7 +48,7 @@ public class BlogController {
 			model.addObject("keyWords",null);
 		}
 		model.addObject("blog",blog);
-		blog.setReplyHit(blog.getClickHit()+1);
+		blog.setClickHit(blog.getClickHit()+1);
 		blogService.update(blog);
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("blogId", blog.getId());

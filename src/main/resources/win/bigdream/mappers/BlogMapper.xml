@@ -57,10 +57,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update t_blog 
 		<set>
 			<if test="clickHit!=null">
-				clickHit=#{clickHit}
+				clickHit=#{clickHit},
+			</if>
+			<if test="replyHit!=null">
+				replyHit=#{replyHit},
 			</if>
 		</set>
-		where id='39'
+		where id=#{id}
 	</update>
 	
 	<select id="getLastBlog" parameterType="Integer" resultMap="BlogResult">

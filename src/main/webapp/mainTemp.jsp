@@ -36,7 +36,7 @@
 					博主信息
 				</div>
 				<div class="user_image">
-					<img src="${pageContext.request.contextPath}/static/userImages/20160202095456.jpg"/>
+					<img src="${pageContext.request.contextPath}/static/userImages/olddrive.jpg"/>
 				</div>
 				<div class="nickName">${blogger.userName }</div>
 				<div class="userSign">${blogger.sign }</div>

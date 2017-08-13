@@ -7,8 +7,41 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css">
 <script type="text/javascript">
     SyntaxHighlighter.all();
+    //显示全部评论
     function showOtherComment(){
     	$(".otherComment").show();
+    }
+    //重新获取验证码
+    function loadimage(){
+    	//原因是每次请求都一样，图片会刷新不了
+    	document.getElementById("randImage").src="${pageContext.request.contextPath}/image.jsp?"+Math.random();
+    }
+    //提交评论
+    function submitData(){
+    	var content = $("#content").val();
+        var imageCode = $("#imageCode").val();
+        //请输入评论内容
+    	if(content==null || content==""){
+    		alert("请输入评论内容！");
+    		return;
+    	}
+    	//请输入验证码
+        if(imageCode==null || imageCode==""){
+        	alert("请输入验证码!");
+        	return;
+        }
+    	$.post("${pageContext.request.contextPath}/comment/save.do",
+    			{"content":content,"imageCode":imageCode,"blog.id":"${blog.id}"},
+    			function(result){
+    				if(result.success){
+    					alert("评论已提交成功，审核通过后显示！")
+    				}else{
+    					alert(result.errorInfo);
+    				}
+    			},"json")
+        
+        //向后台发送请求
+        
     }
 </script>
 <div class="data_list">
@@ -75,5 +108,25 @@
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
+	</div>
+</div>
+<div class="data_list">
+	<%--标头 --%>
+	<div class="data_list_title">
+		<img src="/static/images/publish_comment_icon.png"/>
+		发布评论
+	</div>
+	<%--评论部分 --%>
+	<div class="publish_comment">
+		<div>
+			<textarea id="content" name="content" style="width:100%;" rows="3" placeholder="来说两句吧..."></textarea>
+		</div>
+		<div class="verCode">
+			验证码：<input type="text" value="${imageCode }" name="imageCode"  id="imageCode" size="10" onkeydown= "if(event.keyCode==13)form1.submit()"/>&nbsp;
+			<img onclick="javascript:loadimage();"  title="换一张试试" name="randImage" id="randImage" src="${pageContext.request.contextPath}/image.jsp" width="60" height="20" border="1" align="absmiddle"> 
+		</div>
+		<div class="publishButton">
+			<button class="btn btn-primary" type="buttton" onclick="submitData()">发布评论</button>
+		</div class="publishButton">
 	</div>
 </div>

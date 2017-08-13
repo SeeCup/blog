@@ -18,4 +18,11 @@ public interface CommentDao {
 	 * @return
 	 */
 	public List<Comment> list(Map<String,Object> map);
+	
+	/**
+	 * 添加评论
+	 * @param comment
+	 * @return
+	 */
+	public int add(Comment comment);
 }
