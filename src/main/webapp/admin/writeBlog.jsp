@@ -16,45 +16,53 @@
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="gbk" src="${pageContext.request.contextPath}/static/ueditor/lang/zh-cn/zh-cn.js"></script>
-</head>
-<body>
-博客内容：
-<!-- 加载编辑器的容器 -->
-<script id="editor" name="content" type="text/plain" style="width:100%;height:500px;"></script>
 
-  <button onclick="getContent()">获得内容</button>
-        <button onclick="setContent()">写入内容</button>
-        <button onclick="setContent(true)">追加内容</button>
-        <button onclick="getContentTxt()">获得纯文本</button>
-<!-- 实例化编辑器 -->
 <script type="text/javascript">
-    var ue = UE.getEditor('editor');
-    
-    function getContent() {
-        var arr = [];
-        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
-        arr.push("内容为：");
-        arr.push(UE.getEditor('editor').getContent());
-        alert(arr.join("\n"));
-    }
-  
-    function setContent(isAppendTo) {
-        var arr = [];
-        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
-        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
-        alert(arr.join("\n"));
-    }
-    
-    function getContentTxt() {
-        var arr = [];
-        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
-        arr.push("编辑器的纯文本内容为：");
-        arr.push(UE.getEditor('editor').getContentTxt());
-        alert(arr.join("\n"));
-    }
+
 </script>
+</head>
+<body style="margin:10px">
 
-
+<div id="p" class="easyui-panel" title="编写博客" style="padding:10px">
+	<table cellspacing="20px">
+		<tr>
+			<td width="80px">博客标题：</td>
+			<td>
+				<input type="text" id="title" name="title" style="width:400px">
+			</td>
+		</tr>
+		<tr>
+			<td>所属类别：</td>
+			<td>
+				<select class="easyui-combobox">
+					<option>1111</option>
+					<option>1111</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">博客内容：</td>
+			<td>
+				<script id="editor" name="content" type="text/plain" style="width:100%;height:500px;"></script>
+			</td>
+		</tr>
+		<tr>
+			<td>关键字：</td>
+			<td>
+				<input type="text" id="keyword" style="width:400px"/>&nbsp;(多个关键字中间用空格隔开)
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<a href="" class="easyui-linkbutton" data-options="iconCls:'icon-submit'"></a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	var ue = UE.getEditor('editor');
+</script>
 
 </body>
 </html>
