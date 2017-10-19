@@ -36,7 +36,7 @@
 			//ajax请求 $.post(url,data,callback,type)
 			$.post("${pageContext.request.contextPath}/admin/blog/save.do",
 					{'title':title,'blogType.id':blogTypeId,'content':content,
-				'summary':UE.getEditor('editor').getContent().substr(0,155),'keyWord':keyWord},
+				'summary':UE.getEditor('editor').getContentTxt().substr(0,155),'keyWord':keyWord},//getContentTxt文本
 				function(result){
 					if(result.success){
 						alert("博客发布成功！");
