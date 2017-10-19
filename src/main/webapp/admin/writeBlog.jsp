@@ -33,10 +33,18 @@
 		}else if(content==null || content==''){
 			alert("请填写内容！");
 		}else{
-			//ajax请求
-			if(1){
-				resultValue();
-			}
+			//ajax请求 $.post(url,data,callback,type)
+			$.post("${pageContext.request.contextPath}/admin/blog/save.do",
+					{'title':title,'blogType.id':blogTypeId,'content':content,
+				'summary':UE.getEditor('editor').getContent().substr(0,155),'keyWord':keyWord},
+				function(result){
+					if(result.success){
+						alert("博客发布成功！");
+						resultValue();
+					}else{
+						alert("博客发布失败！");
+					}
+				},"json");
 		}
 	}
 	
